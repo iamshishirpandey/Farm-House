@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import Link from "next/link";
+import Image from "next/image";
 const people = [
   {
     name: "Jane Cooper",

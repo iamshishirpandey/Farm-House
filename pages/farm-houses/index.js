@@ -5,6 +5,7 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import { XIcon, CheckIcon } from "@heroicons/react/outline";
 import { DotsVerticalIcon } from "@heroicons/react/solid";
 import AddItemForm from "../../components/AddItemForm/addItemForm";
+import Image from "next/image";
 /* This example requires Tailwind CSS v2.0+ */
 const farmHouses = [
   {

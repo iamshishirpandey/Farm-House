@@ -57,6 +57,28 @@ export default function FarmHouse() {
       imageAlt:
         "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
     },
+    {
+      id: 2,
+      name: "Buffalo",
+      href: "#",
+      price: "$60",
+      quantity: "1",
+      imageSrc:
+        "https://upload.wikimedia.org/wikipedia/commons/8/8e/Murrah_buffalo.JPG",
+      imageAlt:
+        "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    },
+    {
+      id: 3,
+      name: "Ostrich",
+      href: "#",
+      price: "$100",
+      quantity: "1",
+      imageSrc:
+        "https://www.gannett-cdn.com/-mm-/c5c09dd22346a9b53dbf251b8e93cb6d9ba29868/c=0-196-3861-2377/local/-/media/2015/01/24/Phoenix/Phoenix/635577047626238302-phxdc5-6936v4t3ndh1j0kyujd9-original.jpg",
+      imageAlt:
+        "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    },
 
     // More products...
   ];

@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {
   FolderIcon,
   HomeIcon,
@@ -28,7 +29,20 @@ function classNames(...classes) {
 export default function NavSidebar({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
 
+  const history = useHistory();
+
+  async function handleLogout() {
+    setError("");
+
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
+  }
   return (
     <>
       <div>
@@ -190,8 +204,11 @@ export default function NavSidebar({ children }) {
                     <p className="text-sm font-medium text-white">
                       {currentUser.email}
                     </p>
-                    <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">
-                      View profile
+                    <p
+                      onClick={handleLogout}
+                      className="text-xs font-medium text-gray-300 group-hover:text-gray-200"
+                    >
+                      logout
                     </p>
                   </div>
                 </div>

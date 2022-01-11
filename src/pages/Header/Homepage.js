@@ -120,7 +120,7 @@ export default function Homescreen() {
 
       {/* <!-- footer section start here --> */}
       <footer>
-        <div className="footer-top relative padding-tb bg-ash relative">
+        <div className="footer-top  padding-tb bg-ash ">
           <div className="shape-images">
             <img src="assets/images/shape-img/01.png" alt="shape-images" />
           </div>

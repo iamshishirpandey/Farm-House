@@ -9,7 +9,8 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import GetAllFarmHouse from "../actions/farmhouse-actions";
 import NavSidebar from "../components/nav-sidebar/nav-sidebar";
-
+import { firestore } from "firebase";
+const db = firestore().collection("/farmhouse");
 export default function FarmHouse() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -24,6 +25,14 @@ export default function FarmHouse() {
           setFarmHouses([doc.data(), ...farmHouses]);
         });
       });
+  }
+  function handleDelete(id) {
+    console.log(id);
+    console.log(farmHouseDetails.id);
+    db.doc(farmHouseDetails.id).update({
+      products: firestore.FieldValue.arrayRemove(farmHouseDetails.products[id]),
+    });
+    setOpen(false);
   }
   useEffect(() => {
     mount();
@@ -74,6 +83,7 @@ export default function FarmHouse() {
                 <div className=" inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-[50rem] sm:w-full sm:p-6">
                   <AddItemForm
                     id={farmHouseDetails.id}
+                    onClose={() => setDialogOpen(false)}
                     products={farmHouseDetails.products}
                   />
                 </div>
@@ -250,77 +260,82 @@ export default function FarmHouse() {
                             <div className="max-w-2xl mx-auto py-10 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                               <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
                                 {farmHouseDetails.products &&
-                                  farmHouseDetails.products.map((product) => (
-                                    <a key={product.id} className="group">
-                                      <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                                        <img
-                                          src={product.imageSrc}
-                                          className="w-full h-full object-center object-cover group-hover:opacity-75"
-                                        />
-                                      </div>
-                                      <div className="flex flex-row item-start justify-between  py-2 ">
-                                        <h3 className="mt-4 text-sm text-gray-700">
-                                          {product.name}
-                                        </h3>
-                                        {/* Dropdown Start */}
-                                        <span className="ml-3 inline-flex sm:ml-0">
-                                          <Menu
-                                            as="div"
-                                            className="relative inline-block text-left"
-                                          >
-                                            <Menu.Button className="inline-flex items-center p-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-400 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                              <span className="sr-only">
-                                                Open options menu
-                                              </span>
-                                              <DotsVerticalIcon
-                                                className="h-5 w-5"
-                                                aria-hidden="true"
-                                              />
-                                            </Menu.Button>
-                                            <Transition
-                                              as={Fragment}
-                                              enter="transition ease-out duration-100"
-                                              enterFrom="transform opacity-0 scale-95"
-                                              enterTo="transform opacity-100 scale-100"
-                                              leave="transition ease-in duration-75"
-                                              leaveFrom="transform opacity-100 scale-100"
-                                              leaveTo="transform opacity-0 scale-95"
+                                  farmHouseDetails.products.map(
+                                    (product, index) => (
+                                      <a key={product.id} className="group">
+                                        <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+                                          <img
+                                            src={product.imageSrc}
+                                            className="w-full h-full object-center object-cover group-hover:opacity-75"
+                                          />
+                                        </div>
+                                        <div className="flex flex-row item-start justify-between  py-2 ">
+                                          <h3 className="mt-4 text-sm text-gray-700">
+                                            {product.name}
+                                          </h3>
+                                          {/* Dropdown Start */}
+                                          <span className="ml-3 inline-flex sm:ml-0">
+                                            <Menu
+                                              as="div"
+                                              className="relative inline-block text-left"
                                             >
-                                              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                <div className="py-1">
-                                                  <Menu.Item>
-                                                    <a
-                                                      href="#"
-                                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                    >
-                                                      Update
-                                                    </a>
-                                                  </Menu.Item>
-                                                  <Menu.Item>
-                                                    <a
-                                                      href="#"
-                                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                    >
-                                                      Remove
-                                                    </a>
-                                                  </Menu.Item>
-                                                </div>
-                                              </Menu.Items>
-                                            </Transition>
-                                          </Menu>
-                                        </span>
-                                        {/* Dropdown End */}
-                                      </div>
-                                      <div className="flex flex-row item-start justify-between  py-2 ">
-                                        <p className="mt-1 text-lg font-medium text-gray-900">
-                                          {product.price}
-                                        </p>
-                                        <p className="mt-1 text-lg font-medium text-gray-900">
-                                          Quantity: {product.quantity}
-                                        </p>
-                                      </div>
-                                    </a>
-                                  ))}
+                                              <Menu.Button className="inline-flex items-center p-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-400 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                <span className="sr-only">
+                                                  Open options menu
+                                                </span>
+                                                <DotsVerticalIcon
+                                                  className="h-5 w-5"
+                                                  aria-hidden="true"
+                                                />
+                                              </Menu.Button>
+                                              <Transition
+                                                as={Fragment}
+                                                enter="transition ease-out duration-100"
+                                                enterFrom="transform opacity-0 scale-95"
+                                                enterTo="transform opacity-100 scale-100"
+                                                leave="transition ease-in duration-75"
+                                                leaveFrom="transform opacity-100 scale-100"
+                                                leaveTo="transform opacity-0 scale-95"
+                                              >
+                                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                  <div className="py-1">
+                                                    <Menu.Item>
+                                                      <a
+                                                        href="#"
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                      >
+                                                        Update
+                                                      </a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                      <a
+                                                        // href="#"
+                                                        onClick={() =>
+                                                          handleDelete(index)
+                                                        }
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                      >
+                                                        Remove
+                                                      </a>
+                                                    </Menu.Item>
+                                                  </div>
+                                                </Menu.Items>
+                                              </Transition>
+                                            </Menu>
+                                          </span>
+                                          {/* Dropdown End */}
+                                        </div>
+                                        <div className="flex flex-row item-start justify-between  py-2 ">
+                                          <p className="mt-1 text-lg font-medium text-gray-900">
+                                            {product.price}
+                                          </p>
+                                          <p className="mt-1 text-lg font-medium text-gray-900">
+                                            Quantity: {product.quantity}
+                                          </p>
+                                        </div>
+                                      </a>
+                                    )
+                                  )}
                               </div>
                             </div>
                           </div>

@@ -5,7 +5,7 @@ import AddProductToDatabase, {
 } from "../../actions/farmhouse-actions";
 import { firestore } from "firebase";
 const db = firestore().collection("/farmhouse");
-export default function AddItemForm({ id, products }) {
+export default function AddItemForm({ onClose, id, products }) {
   const history = useHistory();
   const productName = useRef();
   const productPrice = useRef();
@@ -26,6 +26,7 @@ export default function AddItemForm({ id, products }) {
       suffix: productSuffix.current.value,
     };
     db.doc(id).update({ products: [...products, updateItems] });
+    onClose();
     // FarmHouseDataService.addProductToDatabase(id, products, {
     //   name: productName.current.value,
     //   price: productPrice.current.value,

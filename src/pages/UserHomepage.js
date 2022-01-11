@@ -6,7 +6,7 @@ import GetAllFarmHouse from "../actions/farmhouse-actions";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import Footer from "../components/Footer/footer";
 toast.configure();
 
 export default function UserHomepage() {
@@ -308,6 +308,7 @@ export default function UserHomepage() {
               }
             })}
         </ul>
+        <Footer />
       </div>
     </>
   );

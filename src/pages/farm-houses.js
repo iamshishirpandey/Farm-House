@@ -34,6 +34,7 @@ export default function FarmHouse() {
     });
     setOpen(false);
   }
+  function handleUpdate() {}
   useEffect(() => {
     mount();
   }, []);

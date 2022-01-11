@@ -1,6 +1,39 @@
 import { useHistory } from "react-router-dom";
-export default function AddItemForm() {
+import { useRef } from "react";
+import AddProductToDatabase, {
+  FarmHouseDataService,
+} from "../../actions/farmhouse-actions";
+import { firestore } from "firebase";
+const db = firestore().collection("/farmhouse");
+export default function AddItemForm({ id, products }) {
   const history = useHistory();
+  const productName = useRef();
+  const productPrice = useRef();
+  const productQuantity = useRef();
+  const productSuffix = useRef();
+  function handleAddProduct(e) {
+    e.preventDefault();
+    // db.doc(id).update({ products: { ...products,  {
+    //       name: productName.current.value,
+    //       price: productPrice.current.value,
+    //       quantity: productQuantity.current.value,
+    //       suffix: productSuffix.current.value,
+    //     }  }})
+    const updateItems = {
+      name: productName.current.value,
+      price: productPrice.current.value,
+      quantity: productQuantity.current.value,
+      suffix: productSuffix.current.value,
+    };
+    db.doc(id).update({ products: [...products, updateItems] });
+    // FarmHouseDataService.addProductToDatabase(id, products, {
+    //   name: productName.current.value,
+    //   price: productPrice.current.value,
+    //   quantity: productQuantity.current.value,
+    //   suffix: productSuffix.current.value,
+    // }
+    // );
+  }
   return (
     <div className="m-5">
       <div className="md:flex md:items-center md:justify-between">
@@ -11,7 +44,10 @@ export default function AddItemForm() {
         </div>
       </div>
 
-      <form className="space-y-8 divide-y divide-gray-200 ">
+      <form
+        className="space-y-8 divide-y divide-gray-200 "
+        onSubmit={handleAddProduct}
+      >
         <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
           <div className="pt-8 space-y-6 sm:pt-10 sm:space-y-5">
             <div className="space-y-6 sm:space-y-5">
@@ -25,6 +61,7 @@ export default function AddItemForm() {
                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                   <input
                     type="text"
+                    ref={productName}
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
@@ -89,6 +126,7 @@ export default function AddItemForm() {
                   <input
                     type="text"
                     name="cash"
+                    ref={productPrice}
                     id="postal-code"
                     autoComplete="postal-code"
                     className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
@@ -107,6 +145,7 @@ export default function AddItemForm() {
                     type="text"
                     name="quantity"
                     id="postal-code"
+                    ref={productQuantity}
                     autoComplete="postal-code"
                     className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
                   />
@@ -124,6 +163,7 @@ export default function AddItemForm() {
                     type="text"
                     name="quantity"
                     id="postal-code"
+                    ref={productSuffix}
                     autoComplete="postal-code"
                     className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
                   />

@@ -1,5 +1,5 @@
 // import FarmHouseDescription from "../farm-house-description/farm-house-description";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import { XIcon, CheckIcon } from "@heroicons/react/outline";
 import { DotsVerticalIcon } from "@heroicons/react/solid";
@@ -9,27 +9,11 @@ import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import GetAllFarmHouse from "../actions/farmhouse-actions";
 import NavSidebar from "../components/nav-sidebar/nav-sidebar";
-// import img from "next/image";
-/* This example requires Tailwind CSS v2.0+ */
-// const farmHouses = [
-//   {
-//     name: "Jane Cooper",
-//     location: "Kathmandu",
-//     country: "Nepal",
-//     phone: "+91-98282828282",
-//     email: "jane.cooper@example.com",
-//   },
-//   {
-//     name: "Jane Cooper",
-//     location: "Sydney",
-//     country: "Australia",
-//     phone: "+91-98282828282",
-//     email: "jane.cooper@example.com",
-//   },
-//   // More people...
-// ];
 
 export default function FarmHouse() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
   const [open, setOpen] = useState(false);
   const [farmHouses, setFarmHouses] = useState([]);
   async function mount() {
@@ -45,43 +29,7 @@ export default function FarmHouse() {
     mount();
   }, []);
   const [farmHouseDetails, setFarmHouseDetails] = useState({});
-  const products = [
-    {
-      id: 1,
-      name: "Goat",
-      href: "#",
-      price: "$48",
-      quantity: "1",
-      imageSrc:
-        "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
-      imageAlt:
-        "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-    },
-    {
-      id: 2,
-      name: "Buffalo",
-      href: "#",
-      price: "$60",
-      quantity: "1",
-      imageSrc:
-        "https://upload.wikimedia.org/wikipedia/commons/8/8e/Murrah_buffalo.JPG",
-      imageAlt:
-        "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-    },
-    {
-      id: 3,
-      name: "Ostrich",
-      href: "#",
-      price: "$100",
-      quantity: "1",
-      imageSrc:
-        "https://www.gannett-cdn.com/-mm-/c5c09dd22346a9b53dbf251b8e93cb6d9ba29868/c=0-196-3861-2377/local/-/media/2015/01/24/Phoenix/Phoenix/635577047626238302-phxdc5-6936v4t3ndh1j0kyujd9-original.jpg",
-      imageAlt:
-        "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-    },
 
-    // More products...
-  ];
   const [openDialog, setDialogOpen] = useState(false);
   const router = useHistory();
 
@@ -124,7 +72,10 @@ export default function FarmHouse() {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <div className=" inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-[50rem] sm:w-full sm:p-6">
-                  <AddItemForm />
+                  <AddItemForm
+                    id={farmHouseDetails.id}
+                    products={farmHouseDetails.products}
+                  />
                 </div>
               </Transition.Child>
             </div>

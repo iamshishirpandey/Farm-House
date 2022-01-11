@@ -14,13 +14,15 @@ import CreateFarmHouse from "./farm-house-create";
 import NotFound from "./404";
 import UserHomepage from "./UserHomepage";
 import StripePaymentForm from "./StripeIntegration";
+
+import Homescreen from "./Header/Homepage";
 function App() {
   return (
     <Router>
       <AuthProvider>
         <Switch>
-          <Route exact path="/" component={UserHomepage} />
-          <Route exact path="/user-home" component={UserHomepage} />
+          <Route exact path="/" component={Homescreen} />
+          <Route exact path="/user-home" component={Homescreen} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/farm-houses" component={FarmHouse} />
           <PrivateRoute
@@ -34,6 +36,7 @@ function App() {
           <Route path="/stripe-test" component={StripePaymentForm} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
+          {/* <Route path="/homepage" component={Homescreen} /> */}
           <Route component={NotFound} />
         </Switch>
       </AuthProvider>

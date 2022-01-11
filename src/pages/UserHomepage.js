@@ -3,23 +3,15 @@ import { Fragment, useState, useEffect } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 
 import GetAllFarmHouse from "../actions/farmhouse-actions";
-const products = [
-  {
-    name: "Goat",
-    title: "Kathmandu Farm",
-    email: "janecooper@example.com",
-    telephone: "+1-202-555-0170",
-    price: "100",
-    suffix: "kg",
-    quantity: "1",
-    imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg",
-  },
-  // More people.pr..
-];
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+toast.configure();
 
 export default function UserHomepage() {
   const [farmHouses, setFarmHouses] = useState([]);
+
   async function mount() {
     GetAllFarmHouse()
       .orderBy("name", "asc")
@@ -33,10 +25,26 @@ export default function UserHomepage() {
   useEffect(() => {
     mount();
   }, []);
-
+  const [prod] = useState({
+    name: "Tesla Roadster",
+    price: 64998.67,
+    description: "Cool car",
+  });
   const [openDialog, setDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState({});
-
+  async function handleToken(token, addresses) {
+    const response = await axios.post(
+      "https://ry7v05l6on.sse.codesandbox.io/checkout",
+      { token, prod }
+    );
+    const { status } = response.data;
+    console.log("Response:", response.data);
+    if (status === "success") {
+      toast("Success! Check email for details", { type: "success" });
+    } else {
+      toast("Something went wrong", { type: "error" });
+    }
+  }
   return (
     <>
       <Transition.Root show={openDialog} as={Fragment}>
@@ -215,12 +223,14 @@ export default function UserHomepage() {
                         >
                           Cancel
                         </button>
-                        <button
-                          type="submit"
-                          className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                          Proceed
-                        </button>
+                        <StripeCheckout
+                          stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                          token={handleToken}
+                          amount={1000}
+                          name="Farm House"
+                          billingAddress
+                          shippingAddress
+                        />
                       </div>
                     </div>
                   </form>
@@ -232,8 +242,8 @@ export default function UserHomepage() {
       </Transition.Root>
 
       <div className="m-5">
-        <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">
+        <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6  text-center">
+          <h3 className="text-lg leading-6 font-medium text-gray-900 items-center flex-1">
             Available Products
           </h3>
         </div>

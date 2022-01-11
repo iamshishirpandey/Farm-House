@@ -308,7 +308,7 @@ export default function UserHomepage() {
               }
             })}
         </ul>
-        <Footer />
+        {farmHouses && <Footer />}
       </div>
     </>
   );

@@ -16,13 +16,14 @@ import UserHomepage from "./UserHomepage";
 import StripePaymentForm from "./StripeIntegration";
 
 import Homescreen from "./Header/Homepage";
+import NewHomepage from "./NewHomepage";
 function App() {
   return (
     <Router>
       <AuthProvider>
         <Switch>
-          <Route exact path="/" component={Homescreen} />
-          <Route exact path="/user-home" component={Homescreen} />
+          <Route exact path="/" component={NewHomepage} />
+          <Route exact path="/user-home" component={NewHomepage} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/farm-houses" component={FarmHouse} />
           <PrivateRoute

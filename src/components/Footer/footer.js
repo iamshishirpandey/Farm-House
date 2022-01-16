@@ -1,5 +1,5 @@
 import GoogleMapReact from "google-map-react";
-export default function footer() {
+export default function Footer() {
   const defaultProps = {
     center: {
       lat: 59.95,

@@ -39,7 +39,17 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                   <div class="ht-add-thumb mr-2">
                     <img src="assets/images/header/01.png" alt="address" />
                   </div>
-                  <div class="ht-add-content">
+                  <div
+                    class="ht-add-content"
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    onClick={() =>
+                      window.open(
+                        "https://maps.google.com/maps?q=prabidhi%20labs&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                      )
+                    }
+                  >
                     <span>1306 Longview Dr, Harrisburg</span>
                     <span class="d-block text-bold">
                       PA 17111, United States
@@ -53,7 +63,9 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                   </div>
                   <div class="ht-add-content">
                     <span>Make Call </span>
-                    <span class="d-block text-bold">+1 717-982-2038</span>
+                    <span class="d-block text-bold">
+                      <a href="tel: +1 717-982-2038">+1 717-982-2038</a>
+                    </span>
                   </div>
                 </li>
               </ul>

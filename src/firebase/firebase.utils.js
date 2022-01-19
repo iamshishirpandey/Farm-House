@@ -3,14 +3,21 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const config = {
-  apiKey: "AIzaSyCZoSGSJicaK9CuthGIv0K5n17bOr9LKmM",
-  authDomain: "the-farm-223df.firebaseapp.com",
-  databaseURL: "https://the-farm-223df.firebaseio.com",
-  projectId: "the-farm-223df",
-  storageBucket: "the-farm-223df.appspot.com",
-  messagingSenderId: "1061647793143",
-  appId: "1:1061647793143:web:00780a2ea626e3d5ca4cf2",
-  measurementId: "G-NKPNKR7JKP",
+  // apiKey: "AIzaSyCZoSGSJicaK9CuthGIv0K5n17bOr9LKmM",
+  // authDomain: "the-farm-223df.firebaseapp.com",
+  // databaseURL: "https://the-farm-223df.firebaseio.com",
+  // projectId: "the-farm-223df",
+  // storageBucket: "the-farm-223df.appspot.com",
+  // messagingSenderId: "1061647793143",
+  // appId: "1:1061647793143:web:00780a2ea626e3d5ca4cf2",
+  // measurementId: "G-NKPNKR7JKP",
+  apiKey: "AIzaSyAjMvq7xHL9gbZYItwVQ7x9vSr3v80z1SE",
+  authDomain: "farmhouse-ffd6a.firebaseapp.com",
+  projectId: "farmhouse-ffd6a",
+  storageBucket: "farmhouse-ffd6a.appspot.com",
+  messagingSenderId: "22247757511",
+  appId: "1:22247757511:web:4a3603e1ad1fca3224d0e2",
+  measurementId: "G-2WCR3HYCC3",
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -64,6 +71,7 @@ export const addCollectionAndDocuments = async (
 // convert to object, not array... to add
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
+    console.log("DOC:", doc.data());
     const { title, items } = doc.data();
 
     return {

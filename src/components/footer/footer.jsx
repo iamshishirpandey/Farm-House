@@ -30,8 +30,8 @@ const Footer = () => (
                     <i class="icofont-phone"></i>
                   </div>
                   <div class="content-part">
-                    <p>+88130-589-745-6987</p>
-                    <p>+1655-456-523</p>
+                    <a href="tel: +717-686-0655">+717-686-0655</a>,
+                    <a href="tel: +717-982-2038">+717-982-2038</a>
                   </div>
                 </li>
                 <li>
@@ -47,7 +47,17 @@ const Footer = () => (
                   <div class="icon-part">
                     <i class="icofont-location-pin"></i>
                   </div>
-                  <div class="content-part">
+                  <div
+                    class="content-part"
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    onClick={() =>
+                      window.open(
+                        "https://maps.google.com/maps?q=prabidhi%20labs&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                      )
+                    }
+                  >
                     <p>
                       1306 Longview Dr, Harrisburg
                       <br />

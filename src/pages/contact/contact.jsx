@@ -31,7 +31,17 @@ const Contact = () => (
                 <div class="contact-icon">
                   <i class="icofont-google-map"></i>
                 </div>
-                <div class="contact-details">
+                <div
+                  class="contact-details"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() =>
+                    window.open(
+                      "https://maps.google.com/maps?q=prabidhi%20labs&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                    )
+                  }
+                >
                   <p>1306 Longview Dr, Harrisburg PA 17111, United States</p>
                 </div>
               </div>
@@ -42,7 +52,8 @@ const Contact = () => (
                   <i class="icofont-phone"></i>
                 </div>
                 <div class="contact-details">
-                  <p>+88978-658-125, 0078-98-954 012-859-6510003</p>
+                  <a href="tel: +1 717-686-0655">+1 717-686-0655</a>,&nbsp;
+                  <a href="tel: +1 717-982-2038">+1 717-982-2038</a>
                 </div>
               </div>
             </div>

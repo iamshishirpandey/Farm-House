@@ -41,7 +41,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
           &#10133;
         </span>
       </QuantityContainerStyles>
-      <TextContainerStyles>€ {price}</TextContainerStyles>
+      <TextContainerStyles>$ {price}</TextContainerStyles>
       <RemoveButtonContainerStyles>
         <span
           onClick={() => clearItem(cartItem)}

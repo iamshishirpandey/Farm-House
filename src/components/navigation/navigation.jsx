@@ -118,7 +118,7 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
   // <NaviContainer>
   //   <StyledNaviContent>
   //     <BrandLogo>
-  //       <h3 style={{ textAlign: "center" }}>Broom Meadow Fresh Farms</h3>
+  //       <h3 style={{ textAlign: "center" }}>BrookMeadow Fresh Farms</h3>
 
   //       {currentUser ? (
   //         currentUser.photoURL ? (

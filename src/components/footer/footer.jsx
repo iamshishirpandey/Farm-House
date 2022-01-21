@@ -44,8 +44,7 @@ const Footer = () => (
                     <i class="icofont-wall-clock"></i>
                   </div>
                   <div class="content-part">
-                    <p>Mon - Fri 09:00 - 18:00</p>
-                    <p>(except public holidays)</p>
+                    <p>Wed - Sun 09:00 - 18:00</p>
                   </div>
                 </li>
                 <li>

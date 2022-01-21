@@ -9,7 +9,12 @@ const Footer = () => (
         <img src="assets/images/shape-img/01.png" alt="shape-images" />
       </div>
       <div class="container">
-        <div class="section-wrapper row">
+        <div
+          class="section-wrapper row"
+          style={{
+            justifyContent: "center",
+          }}
+        >
           <div class="col-xl-3 col-md-6">
             <div class="post-item">
               <div class="footer-logo">
@@ -66,124 +71,6 @@ const Footer = () => (
                   </div>
                 </li>
               </ul>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <div class="post-item">
-              <div class="post-title">
-                <h5>Farm Product</h5>
-              </div>
-              <div class="lab-ul footer-post">
-                <div class="media mb-3">
-                  <div class="fp-thumb mr-3">
-                    <img
-                      src="assets/images/products/product/01.png"
-                      alt="recent-post"
-                    />
-                  </div>
-                  <div class="media-body">
-                    <a href="#">
-                      <h6 class="mt-0">Light Brown Eggs</h6>
-                    </a>
-                    <span class="price">$25.99</span>
-                  </div>
-                </div>
-                <div class="media mb-3">
-                  <div class="fp-thumb mr-3">
-                    <img
-                      src="assets/images/products/product/02.png"
-                      alt="recent-post"
-                    />
-                  </div>
-                  <div class="media-body">
-                    <a href="#">
-                      <h6 class="mt-0">Little Chicken Broiler</h6>
-                    </a>
-                    <span class="price">$25.99</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <div class="post-item">
-              <div class="post-title">
-                <h5>Instagram Feed</h5>
-              </div>
-              <div class="lab-ul footer-gellary">
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/01.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/01.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/02.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/02.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/03.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/03.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/04.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/04.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/05.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/05.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-                <figure class="figure">
-                  <a
-                    href="assets/images/gallery/06.jpg"
-                    data-rel="lightcase:myCollection:slideshow"
-                  >
-                    <img
-                      src="assets/images/gallery/06.jpg"
-                      class="img-fluid rounded"
-                      alt="footer-gellary"
-                    />
-                  </a>
-                </figure>
-              </div>
             </div>
           </div>
         </div>

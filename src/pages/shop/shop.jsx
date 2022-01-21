@@ -31,7 +31,7 @@ class Shop extends React.Component {
       <StyledShop>
         <Route
           exact
-          path={`${match.path}`}
+          // path={`${match.path}`}
           render={(props) => (
             <CollectionsOverviewWithSpinner
               isLoading={isCollectionFetching}
@@ -39,7 +39,7 @@ class Shop extends React.Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           path={`${match.path}/:collectionId`}
           render={(props) => (
             <CollectionWithSpinner
@@ -47,7 +47,7 @@ class Shop extends React.Component {
               {...props}
             />
           )}
-        />
+        /> */}
       </StyledShop>
     );
   }

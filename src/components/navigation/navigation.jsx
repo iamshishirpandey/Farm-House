@@ -8,7 +8,7 @@ import CartDropdown from "../cart-dropdown/cart-dropdown";
 import { auth } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
-import { clearCart } from "../../redux/cart/cart.action";
+import { clearCart, toggleCartHidden } from "../../redux/cart/cart.action";
 
 import { toast } from "react-toastify";
 import {
@@ -90,10 +90,10 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                     <a href="/">Home</a>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <a href="/shop">Shop</a>
                     <ul class="lab-ul"></ul>
-                  </li>
+                  </li> */}
 
                   <li>
                     <a href="contact">Contact</a>
@@ -118,7 +118,7 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
   // <NaviContainer>
   //   <StyledNaviContent>
   //     <BrandLogo>
-  //       <h3 style={{ textAlign: "center" }}>Brook Meadow Farms</h3>
+  //       <h3 style={{ textAlign: "center" }}>Broom Meadow Fresh Farms</h3>
 
   //       {currentUser ? (
   //         currentUser.photoURL ? (

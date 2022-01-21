@@ -1,4 +1,4 @@
-# The Broom Meadow Fresh Farm
+# The BrookMeadow Fresh Farm
 
 An e-commerce app built solely on the classic react-redux.
 Using firebase for user authentication via username and password, as well as google sign-in authentication.

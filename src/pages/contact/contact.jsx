@@ -7,7 +7,7 @@ const Contact = () => (
       <div class="overlay"></div>
       <div class="container">
         <div class="page-header-content-area">
-          <h4 class="ph-title">Broom Meadow Fresh Farm Contact us</h4>
+          <h4 class="ph-title">BrookMeadow Fresh Farm Contact us</h4>
           <ul class="lab-ul">
             <li>
               <a href="index.html">Home</a>

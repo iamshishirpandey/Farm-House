@@ -14,7 +14,7 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Broom Meadow Fresh Farm"
+      name="BrookMeadow Fresh Farm"
       billingAddress
       shippingAddress
       image="https://i.ibb.co/hZQj6np/mill-157613-640.png"

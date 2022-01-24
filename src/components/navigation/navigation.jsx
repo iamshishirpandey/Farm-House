@@ -74,44 +74,46 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
         </div>
       </div>
     </div>
-    <div class="header-bottom bg-theme">
-      <div class="header-area">
-        <div class="container">
-          <div class="primary-menu">
-            <div class="main-area w-100">
-              <div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
-                <div class="logo">
-                  <a href="/">
-                    <img src="assets/images/logo/02.png" alt="logo" />
-                  </a>
-                </div>
-                <ul class="lab-ul">
-                  <li class="active">
-                    <a href="/">Home</a>
-                  </li>
+    <header className="sticky top-0">
+      <div class="sticky top-0 header-bottom bg-theme">
+        <div class="header-area">
+          <div class="container">
+            <div class="primary-menu">
+              <div class="main-area w-100">
+                <div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
+                  <div class="logo">
+                    <a href="/">
+                      <img src="assets/images/logo/02.png" alt="logo" />
+                    </a>
+                  </div>
+                  <ul class="lab-ul">
+                    <li class="active">
+                      <a href="/">Home</a>
+                    </li>
 
-                  {/* <li>
+                    {/* <li>
                     <a href="/shop">Shop</a>
                     <ul class="lab-ul"></ul>
                   </li> */}
 
-                  <li>
-                    <a href="contact">Contact</a>
-                  </li>
-                </ul>
-                <ul class="lab-ul search-cart">
-                  <li>
-                    <div class="cart-option">
-                      <CartIcon />
-                    </div>
-                  </li>
-                </ul>
+                    <li>
+                      <a href="contact">Contact</a>
+                    </li>
+                  </ul>
+                  <ul class="lab-ul search-cart">
+                    <li>
+                      <div class="cart-option">
+                        <CartIcon />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </header>
     {hidden ? null : <CartDropdown />}
   </header>
 

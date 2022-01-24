@@ -20,7 +20,7 @@ const Home = () => (
             <div class="about-title">
               <h2>
                 <span class="d-lg-block"> Welcome to Our BrookMeadow </span>
-                Farm.
+                Fresh Farm.
               </h2>
               <p>Our Weekly Opening time</p>
             </div>

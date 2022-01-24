@@ -46,7 +46,7 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                     }}
                     onClick={() =>
                       window.open(
-                        "https://maps.google.com/maps?q=prabidhi%20labs&t=&z=7&ie=UTF8&iwloc=&output=embed"
+                        "https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr,%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
                       )
                     }
                   >

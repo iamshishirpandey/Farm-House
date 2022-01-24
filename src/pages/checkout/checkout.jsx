@@ -48,12 +48,6 @@ const CheckoutPage = ({ cartItems, total }) => (
 
     <TotalStyles>TOTAL: $ {total.toFixed(2)}</TotalStyles>
 
-    <TestWarningStyles>
-      *Kindly use this test credit card info to view the functionality*
-      <br />
-      4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-      <br />
-    </TestWarningStyles>
     <StripeCheckoutButton price={total} />
   </CheckoutContainerStyles>
 );

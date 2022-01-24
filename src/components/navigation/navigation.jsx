@@ -21,9 +21,9 @@ import {
 } from "./navigation.styles";
 
 const Navigation = ({ currentUser, hidden, clearCart }) => (
-  <header class="header-section">
+  <header class="header-section sticky top-0 z-10 bg-white">
     <div class="header-top">
-      <div class="container">
+      <div class="container ">
         <div class="row justify-content-center align-items-center">
           <div class="col-lg-5 col-12">
             <div class="logo py-2">
@@ -57,7 +57,7 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                   </div>
                 </li>
 
-                <li class="d-flex flex-wrap align-items-center">
+                <li class="d-flex flex-wrap align-items-center ml-3">
                   <div class="ht-add-thumb mr-2">
                     <img src="assets/images/header/03.png" alt="call" />
                   </div>
@@ -74,46 +74,45 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
         </div>
       </div>
     </div>
-    <header className="sticky top-0">
-      <div class="sticky top-0 header-bottom bg-theme">
-        <div class="header-area">
-          <div class="container">
-            <div class="primary-menu">
-              <div class="main-area w-100">
-                <div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
-                  <div class="logo">
-                    <a href="/">
-                      <img src="assets/images/logo/02.png" alt="logo" />
-                    </a>
-                  </div>
-                  <ul class="lab-ul">
-                    <li class="active">
-                      <a href="/">Home</a>
-                    </li>
+    <div class=" header-bottom bg-theme">
+      <div class="header-area">
+        <div class="container">
+          <div class="primary-menu">
+            <div class="main-area w-100">
+              <div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
+                <div class="logo">
+                  <a href="/">
+                    <img src="assets/images/logo/02.png" alt="logo" />
+                  </a>
+                </div>
+                <ul class="lab-ul">
+                  <li class="active">
+                    <a href="/">Home</a>
+                  </li>
 
-                    {/* <li>
+                  {/* <li>
                     <a href="/shop">Shop</a>
                     <ul class="lab-ul"></ul>
                   </li> */}
 
-                    <li>
-                      <a href="contact">Contact</a>
-                    </li>
-                  </ul>
-                  <ul class="lab-ul search-cart">
-                    <li>
-                      <div class="cart-option">
-                        <CartIcon />
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                  <li>
+                    <a href="contact">Contact</a>
+                  </li>
+                </ul>
+                <ul class="lab-ul search-cart">
+                  <li>
+                    <div class="cart-option">
+                      <CartIcon />
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+
     {hidden ? null : <CartDropdown />}
   </header>
 

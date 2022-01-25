@@ -38,11 +38,11 @@ const Contact = () => (
                   }}
                   onClick={() =>
                     window.open(
-                      "https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr,%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      "https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr.%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     )
                   }
                 >
-                  <p>1306 Longview Dr, Harrisburg PA 17111, United States</p>
+                  <p>1306 Longview Dr. Harrisburg PA 17111, United States</p>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ const Contact = () => (
               <div class="location-map">
                 <div id="map">
                   <iframe
-                    src="https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr,%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr.%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     allowfullscreen=""
                   ></iframe>
                 </div>

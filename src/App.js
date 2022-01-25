@@ -49,7 +49,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="flex-1">
+      <div className="flex-1 top-0">
         <Navigation />
         <Switch>
           <ErrorBoundary>

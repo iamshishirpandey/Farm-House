@@ -22,6 +22,89 @@ import {
 
 const Navigation = ({ currentUser, hidden, clearCart }) => (
   <header class="header-section sticky top-0 z-10 bg-white">
+    {/* <!-- Mobile Menu Start Here --> */}
+    <div class="mobile-menu transparent-header">
+      <nav class="mobile-header">
+        <div class="header-logo">
+          <a href="index.html">
+            <img src="assets/images/logo/01.png" alt="logo" />
+          </a>
+        </div>
+        <div class="header-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <nav class="mobile-menu">
+        <div class="mobile-menu-area">
+          <div class="mobile-menu-area-inner">
+            <ul class="lab-ul">
+              <li>
+                <a href="#0">Home</a>
+                <ul class="lab-ul">
+                  <li>
+                    <a href="index.html">Home Page One</a>
+                  </li>
+                  <li>
+                    <a href="index-2.html">Home Page Two</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="about.html">About</a>
+              </li>
+              <li>
+                <a href="#0">Pages</a>
+                <ul class="lab-ul">
+                  <li>
+                    <a href="team.html">Team Membar</a>
+                  </li>
+                  <li>
+                    <a href="faq-page.html">Faq Page</a>
+                  </li>
+                  <li>
+                    <a href="404.html">404 Page</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#0">Blog</a>
+                <ul class="lab-ul">
+                  <li>
+                    <a href="blog.html">Blog Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-ls.html">Blog left Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-single.html">Blog Details</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="active">
+                <a href="#0">Shop</a>
+                <ul class="lab-ul">
+                  <li class="active">
+                    <a href="product-page.html">Products Page</a>
+                  </li>
+                  <li>
+                    <a href="product-single.html">Products Details</a>
+                  </li>
+                  <li>
+                    <a href="cart-page.html">Cart Page</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    {/* <!-- Mobile Menu Ending Here --> */}
     <div class="header-top">
       <div class="container ">
         <div class="row justify-content-center align-items-center">
@@ -46,11 +129,11 @@ const Navigation = ({ currentUser, hidden, clearCart }) => (
                     }}
                     onClick={() =>
                       window.open(
-                        "https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr,%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        "https://maps.google.com/maps?q=Brook%20Meadow%20farm%201306%20Longview%20Dr.%20Harrisburg,%20PA%2017111,%20United%20States&t=&z=13&ie=UTF8&iwloc=&output=embed"
                       )
                     }
                   >
-                    <span>1306 Longview Dr, Harrisburg</span>
+                    <span>1306 Longview Dr. Harrisburg</span>
                     <span class="d-block text-bold">
                       PA 17111, United States
                     </span>

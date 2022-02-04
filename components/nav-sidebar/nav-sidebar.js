@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import Link from "next/link";
+import { Fragment, useState } from "react"
+import { Dialog, Transition } from "@headlessui/react"
+import Link from "next/link"
 import {
   CalendarIcon,
   ChartBarIcon,
@@ -11,28 +11,24 @@ import {
   MenuIcon,
   UsersIcon,
   XIcon,
-} from "@heroicons/react/outline";
+} from "@heroicons/react/outline"
 
-import FarmHouseDescription from "../../pages/farm-house-description/farm-house-description";
-import Image from "next/image";
+import FarmHouseDescription from "../../pages/farm-house-description/farm-house-description"
+import Image from "next/image"
 
 const navigation = [
-  { name: "Dashboard", href: "dashboard", icon: FolderIcon, current: false },
-  { name: "Farm Houses", href: "farm-houses", icon: HomeIcon, current: false },
-  // { name: "Products", href: "products", icon: ChartBarIcon, current: false },
-  { name: "Users", href: "users", icon: UsersIcon, current: false },
-  // { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  // { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  // { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
-];
+  { name: "Dashboard", href: "dashboard", icon: FolderIcon },
+  { name: "Farm Houses", href: "farm-houses", icon: HomeIcon },
+  { name: "Order", href: "orders", icon: HomeIcon },
+  { name: "Users", href: "users", icon: UsersIcon },
+]
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 export default function NavSidebar({ children }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
     <>
@@ -89,7 +85,7 @@ export default function NavSidebar({ children }) {
                 </Transition.Child>
                 <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                   <div className="flex-shrink-0 flex items-center px-4">
-                    <Image
+                    <img
                       className="h-8 w-auto"
                       src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                       alt="Workflow"
@@ -125,7 +121,7 @@ export default function NavSidebar({ children }) {
                   <a href="#" className="flex-shrink-0 group block">
                     <div className="flex items-center">
                       <div>
-                        <Image
+                        <img
                           className="inline-block h-10 w-10 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                           alt=""
@@ -151,40 +147,40 @@ export default function NavSidebar({ children }) {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 ">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex-1 flex flex-col min-h-0 bg-gray-800">
-            <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-              <div className="flex items-center flex-shrink-0 px-4">
-                <Image
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                  alt="Workflow"
+            <div className="flex-1 flex flex-col pb-4 overflow-y-auto">
+              <div className="flex items-center flex-shrink-0 px-2 py-2 bg-gray-100">
+                <img
+                  className="h-12 w-auto"
+                  src="/logo/01.png"
+                  alt="BrookMeadow"
                 />
               </div>
               <nav className="mt-5 flex-1 px-2 space-y-1">
                 {navigation.map((item, index) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.id == index
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                    )}
-                  >
-                    <item.icon
+                  <Link key={item.name} href={item.href}>
+                    <a
                       className={classNames(
-                        item.current
-                          ? "text-gray-300"
-                          : "text-gray-400 group-hover:text-gray-300",
-                        "mr-3 flex-shrink-0 h-6 w-6"
+                        item.id == index
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                       )}
-                      aria-hidden="true"
-                    />
-                    {item.name}
-                  </a>
+                    >
+                      <item.icon
+                        className={classNames(
+                          item.current
+                            ? "text-gray-300"
+                            : "text-gray-400 group-hover:text-gray-300",
+                          "mr-3 flex-shrink-0 h-6 w-6"
+                        )}
+                        aria-hidden="true"
+                      />
+                      {item.name}
+                    </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -192,7 +188,7 @@ export default function NavSidebar({ children }) {
               <a href="#" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
-                    <Image
+                    <img
                       className="inline-block h-9 w-9 rounded-full"
                       src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
@@ -227,5 +223,5 @@ export default function NavSidebar({ children }) {
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
-import FarmHouseDescription from "../farm-house-description/farm-house-description";
-import { Fragment, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
-import { XIcon, CheckIcon } from "@heroicons/react/outline";
-import { DotsVerticalIcon } from "@heroicons/react/solid";
-import AddItemForm from "../../components/AddItemForm/addItemForm";
-import Image from "next/image";
+import { useRouter } from "next/router"
+import FarmHouseDescription from "../farm-house-description/farm-house-description"
+import { Fragment, useState } from "react"
+import { Dialog, Menu, Transition } from "@headlessui/react"
+import { XIcon, CheckIcon } from "@heroicons/react/outline"
+import { DotsVerticalIcon } from "@heroicons/react/solid"
+import AddItemForm from "../../components/AddItemForm/addItemForm"
+import Image from "next/image"
 /* This example requires Tailwind CSS v2.0+ */
 const farmHouses = [
   {
@@ -23,10 +23,10 @@ const farmHouses = [
     email: "jane.cooper@example.com",
   },
   // More people...
-];
+]
 
 export default function FarmHouse() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const products = [
     {
@@ -74,9 +74,9 @@ export default function FarmHouse() {
         "Hand holding black machined steel mechanical pencil with brass tip and top.",
     },
     // More products...
-  ];
-  const [openDialog, setDialogOpen] = useState(false);
-  const router = useRouter();
+  ]
+  const [openDialog, setDialogOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <>
@@ -282,7 +282,7 @@ export default function FarmHouse() {
                           <button
                             type="button"
                             onClick={() => {
-                              setDialogOpen(true);
+                              setDialogOpen(true)
                             }}
                             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           >
@@ -300,7 +300,7 @@ export default function FarmHouse() {
                                   className="group"
                                 >
                                   <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                                    <Image
+                                    <img
                                       src={product.imageSrc}
                                       alt={product.imageAlt}
                                       className="w-full h-full object-center object-cover group-hover:opacity-75"
@@ -502,5 +502,5 @@ export default function FarmHouse() {
         </div>
       </div>
     </>
-  );
+  )
 }
